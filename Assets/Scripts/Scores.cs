@@ -54,14 +54,13 @@ public sealed class Scores
         var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
         Debug.Log(responseString);
     }
-    public void GetScore()
+    public ScoreList GetScore()
     {
         HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:3000/score");
         HttpWebResponse response = (HttpWebResponse)request.GetResponse();
         StreamReader reader = new StreamReader(response.GetResponseStream());
         string jsonResponse = reader.ReadToEnd();
         ScoreList info = JsonUtility.FromJson<ScoreList>(jsonResponse);
-        Debug.Log(info.scores[0].name);
-        //return info;
+        return info;
     }
 }
