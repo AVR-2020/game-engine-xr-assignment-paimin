@@ -32,7 +32,7 @@ const Score = sequelize.define('scores', {
 app.get('/score', function (req, res) {
   Score.findAll().then(function (object) {
     if (object.length>0) {
-      res.send(object)
+      res.json({ scores: object })
     } else res.send('Empty')
   }).catch(function (error) {
     res.send(error)
