@@ -4,8 +4,8 @@ using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 
 public sealed class Scores
 {
@@ -54,13 +54,14 @@ public sealed class Scores
         var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
         Debug.Log(responseString);
     }
-    public ScoreList GetScore()
+    public async Task<ScoreList> GetScore()
     {
         HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:3000/score");
         HttpWebResponse response = (HttpWebResponse)request.GetResponse();
         StreamReader reader = new StreamReader(response.GetResponseStream());
         string jsonResponse = reader.ReadToEnd();
         ScoreList info = JsonUtility.FromJson<ScoreList>(jsonResponse);
+        Debug.Log(info);
         return info;
     }
 }
