@@ -8,7 +8,17 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: d1c3109bdb54ad54c8a2b2838528e640
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 5681d855f1f774947bdae00d53df0a7d
+  - enabled: 1
+    path: Assets/Scenes/ScoreMenu.unity
+    guid: 3c0a75cd785e6f64b99c78c50302c743
+  - enabled: 1
+    path: Assets/Scenes/Town.unity
+    guid: 3a3544262ab520b4883ccae0744481ab
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 3322ddc8168dbcc4a8fea6ba8f428603, type: 2}
+    Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: e7245116f33ca6b4fb8c61f0cafff76e, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 2ebe205a561e8a34cbfb382986839122, type: 2}
     xr.sdk.mock-hmd.settings: {fileID: 11400000, guid: ce745921e3c5d38409d0c92f1196eac3, type: 2}
