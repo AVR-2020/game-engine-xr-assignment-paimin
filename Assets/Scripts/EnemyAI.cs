@@ -23,7 +23,7 @@ public class EnemyAI : MonoBehaviour, ITakeDamage
     private int currentShotsTaken;
     private int currentMaxShotsToTake;
     private NavMeshAgent agent;
-    private Transform player;
+    private Player player;
     private Transform occupiedCoverSpot;
     private Animator animator;
 
@@ -49,7 +49,7 @@ public class EnemyAI : MonoBehaviour, ITakeDamage
         _health = startingHealth;
     }
 
-    public void Init(Transform player, Transform coverSpot)
+    public void Init(Player player, Transform coverSpot)
     {
         occupiedCoverSpot = coverSpot;
         this.player = player;
@@ -77,7 +77,10 @@ public class EnemyAI : MonoBehaviour, ITakeDamage
 
     private void RotateTowardsPlayer()
     {
-        throw new NotImplementedException();
+        Vector3 direction = player.GetHeadPosition() - transform.position;
+        direction.y = 0;
+        Quaternion rotation = Quaternion.LookRotation(direction);
+        rotation = Quaternion.RotateTowards(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
     }
 
     private IEnumerator InitializeShootingCO()
@@ -102,11 +105,20 @@ public class EnemyAI : MonoBehaviour, ITakeDamage
         if (hitPlayer)
         {
             RaycastHit hit;
-            Vector3 direction = player.position - shootingPosition.position;
+            Vector3 direction = player.GetHeadPosition() - shootingPosition.position;
             if(Physics.Raycast(shootingPosition.position, direction, out hit))
             {
-
+                Player player = hit.collider.GetComponentInParent<Player>();
+                if (player)
+                {
+                    player.TakeDamage(damage);
+                }
             }
+        }
+        currentShotsTaken++;
+        if(currentShotsTaken >= currentMaxShotsToTake)
+        {
+            StartCoroutine(InitializeShootingCO());
         }
     }
 
@@ -117,6 +129,8 @@ public class EnemyAI : MonoBehaviour, ITakeDamage
 
     public void TakeDamage(Weapon weapon, Projectile projectile, Vector3 contactPoint)
     {
-        throw new System.NotImplementedException();
+        health -= weapon.GetDamage();
+        if (health <= 0)
+            Destroy(gameObject);
     }
 }
