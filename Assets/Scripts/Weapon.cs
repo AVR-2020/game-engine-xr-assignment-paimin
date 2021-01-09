@@ -25,8 +25,8 @@ public class Weapon : MonoBehaviour
 
     private void SetupInteractableWeaponEvents()
     {
-        interactableWeapon.onSelectEnter.AddListener(PickUpWeapon);
-        interactableWeapon.onSelectExit.AddListener(DropWeapon);
+        interactableWeapon.onSelectEntered.AddListener(PickUpWeapon);
+        interactableWeapon.onSelectExited.AddListener(DropWeapon);
         interactableWeapon.onActivate.AddListener(StartShooting);
         interactableWeapon.onDeactivate.AddListener(StopShooting);
     }
