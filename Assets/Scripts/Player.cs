@@ -9,12 +9,10 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        Debug.Log("Take Damage");
         health -= damage;
         if(health < 0 ){
             health = 0;
         }
-        Debug.Log(string.Format("Player health: {0}", health));
     }
 
     public Vector3 GetHeadPosition()
