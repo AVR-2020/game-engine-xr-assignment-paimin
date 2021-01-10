@@ -2118,14 +2118,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 100
-  minTimeUnderCover: 5
-  maxTimeUnderCover: 10
+  minTimeUnderCover: 2
+  maxTimeUnderCover: 3
   rotationSpeed: 180
   damage: 20
-  minShotsToTake: 3
-  maxShotsToTake: 5
-  shootingAccuracy: 100
+  minShotsToTake: 4
+  maxShotsToTake: 7
+  shootingAccuracy: 20
   shootingPosition: {fileID: 2986083287860540312}
+  bulletPrefab: {fileID: -489022123371060917, guid: 98b0462f66bfeba4dac1502d27f62b03, type: 3}
+  bulletSpawn: {fileID: 6370731154936447986}
 --- !u!195 &4746710379685034554
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2589,43 +2591,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4849140651953746, guid: b017a00e018b1bc4f9ef2a84e5644a92, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.0870852
+      value: 5.3770685
       objectReference: {fileID: 0}
     - target: {fileID: 4849140651953746, guid: b017a00e018b1bc4f9ef2a84e5644a92, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.9162659
+      value: -0.26435685
       objectReference: {fileID: 0}
     - target: {fileID: 4849140651953746, guid: b017a00e018b1bc4f9ef2a84e5644a92, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.049675
+      value: 4.180216
       objectReference: {fileID: 0}
     - target: {fileID: 4849140651953746, guid: b017a00e018b1bc4f9ef2a84e5644a92, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.316745
+      value: 0.353559
       objectReference: {fileID: 0}
     - target: {fileID: 4849140651953746, guid: b017a00e018b1bc4f9ef2a84e5644a92, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.3191203
+      value: -0.3583492
       objectReference: {fileID: 0}
     - target: {fileID: 4849140651953746, guid: b017a00e018b1bc4f9ef2a84e5644a92, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.48438442
+      value: 0.47098535
       objectReference: {fileID: 0}
     - target: {fileID: 4849140651953746, guid: b017a00e018b1bc4f9ef2a84e5644a92, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.75047094
+      value: -0.72439957
       objectReference: {fileID: 0}
     - target: {fileID: 4849140651953746, guid: b017a00e018b1bc4f9ef2a84e5644a92, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 31.66
+      value: 25.402
       objectReference: {fileID: 0}
     - target: {fileID: 4849140651953746, guid: b017a00e018b1bc4f9ef2a84e5644a92, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 67.403
+      value: 70.636
       objectReference: {fileID: 0}
     - target: {fileID: 4849140651953746, guid: b017a00e018b1bc4f9ef2a84e5644a92, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -112.818
+      value: -109.824
       objectReference: {fileID: 0}
     - target: {fileID: 23987613557779748, guid: b017a00e018b1bc4f9ef2a84e5644a92, type: 3}
       propertyPath: m_Enabled

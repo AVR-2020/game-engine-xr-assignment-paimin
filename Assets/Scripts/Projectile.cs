@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    protected Weapon weapon;
+    protected Weapon weapon = new Pistol();
 
     public virtual void Init(Weapon weapon)
     {
