@@ -115,7 +115,6 @@ public class EnemyAI : MonoBehaviour, ITakeDamage
         
         if (hitPlayer)
         {
-            RaycastHit hit;
             Vector3 direction = player.GetHeadPosition() - shootingPosition.position;
             Projectile projectileInstance = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
             projectileInstance.Launch();
