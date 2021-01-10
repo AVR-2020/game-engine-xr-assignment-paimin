@@ -7,14 +7,18 @@ using UnityEngine.SceneManagement;
 public class KeyboardInput : MonoBehaviour
 {
     private GameObject txt;
+    private GameObject cnvs;
     // Start is called before the first frame update
     void Start()
     {
         txt = GameObject.Find("NameText");
+        cnvs = GameObject.Find("KeyboardCanvas");
+        this.HideKB();
     }
     // Update is called once per frame
     void Update()
     {
+
     }
     public void GetText() {
         
@@ -22,7 +26,6 @@ public class KeyboardInput : MonoBehaviour
         //txt.GetComponent().text = this.name;
 
     }
-
 
     public void DelText()
     {
@@ -36,5 +39,13 @@ public class KeyboardInput : MonoBehaviour
         ScoreCounter scoreCounter = GameObject.Find("ScoreCounter").GetComponent<ScoreCounter>();
         Scores.Instance.PostScore(txt.GetComponent<TextMeshPro>().text, scoreCounter.GetScoreValue());
         SceneManager.LoadScene("ScoreMenu");
+    }
+
+    public void ShowKB() {
+        cnvs.SetActive(true);
+    }
+
+    public void HideKB() {
+        cnvs.SetActive(false);
     }
 }

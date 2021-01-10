@@ -10,6 +10,11 @@ public class TimerCounter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+    [SerializeField] GameObject KeyboardCanvas;
+    // Start is called before the first frame update
+    void Start()
+    {
+        
         text = GetComponent<Text> ();
     }
 
@@ -30,7 +35,11 @@ public class TimerCounter : MonoBehaviour
         TimerValue -= Time.deltaTime;
         if(TimerValue <= 0.0)
         {
+<<<<<<< Updated upstream
             //stop game
+=======
+            TimerValue = 0;
+>>>>>>> Stashed changes
         }
     }
     public double GetTimerValue()
