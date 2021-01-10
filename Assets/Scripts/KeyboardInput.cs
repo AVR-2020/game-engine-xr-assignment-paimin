@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class KeyboardInput : MonoBehaviour
 {
     public GameObject txt;
@@ -21,5 +21,19 @@ public class KeyboardInput : MonoBehaviour
         txt.GetComponent<TextMeshPro>().text += this.name;
         //txt.GetComponent().text = this.name;
 
+    }
+
+
+    public void DelText()
+    {
+        txt.GetComponent<TextMeshPro>().text = "";
+        //txt.GetComponent().text = this.name;
+
+    }
+
+    public void Submit()
+    {
+        Scores.Instance.PostScore(txt.GetComponent<TextMeshPro>().text, 123);
+        SceneManager.LoadScene("ScoreMenu");
     }
 }
