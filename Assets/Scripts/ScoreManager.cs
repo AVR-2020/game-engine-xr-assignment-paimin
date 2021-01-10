@@ -9,6 +9,11 @@ public class ScoreManager : MonoBehaviour
     public GameObject ScoreBoardText;
     Scores scores_instance = Scores.Instance;
     // Start is called before the first frame update
+
+    public void Start()
+    {
+        RefreshScore();
+    }
     public void QuitTogame()
     {
         SceneManager.LoadScene("MainMenu");
