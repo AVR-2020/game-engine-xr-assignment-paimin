@@ -81,6 +81,7 @@ public class EnemyAI : MonoBehaviour, ITakeDamage
         direction.y = 0;
         Quaternion rotation = Quaternion.LookRotation(direction);
         rotation = Quaternion.RotateTowards(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
+        transform.rotation = rotation;
     }
 
     private IEnumerator InitializeShootingCO()

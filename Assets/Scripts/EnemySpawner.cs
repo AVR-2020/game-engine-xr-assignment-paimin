@@ -5,14 +5,13 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private Transform[] spawnPoints;
-    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private EnemyAI enemyPrefab;
     [SerializeField] private float spawnInterval;
     [SerializeField] private int maxEnemiesNumber;
-    [SerializeField] private Transform player;
+    [SerializeField] private Player player;
 
-    private List<GameObject> spawnedEnemies = new List<GameObject>();
+    private List<EnemyAI> spawnedEnemies = new List<EnemyAI>();
     private float timeSinceLastSpawn;
-    private float currentEnemiesNumber;
     void Start()
     {
         timeSinceLastSpawn = spawnInterval;
@@ -25,7 +24,7 @@ public class EnemySpawner : MonoBehaviour
         if(timeSinceLastSpawn > spawnInterval)
         {
             timeSinceLastSpawn = 0f;
-            if(currentEnemiesNumber < maxEnemiesNumber)
+            if(spawnedEnemies.Count < maxEnemiesNumber)
             {
                 SpawnEnemy();
             }
@@ -34,6 +33,9 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        GameObject enemy = Instantiate(enemyPrefab, transform.position, transform.rotation);
+        EnemyAI enemy = Instantiate(enemyPrefab, transform.position, transform.rotation);
+        int spawnPointindex = spawnedEnemies.Count % spawnPoints.Length;
+        enemy.Init(player, spawnPoints[spawnPointindex]);
+        spawnedEnemies.Add(enemy);
     }
 }
