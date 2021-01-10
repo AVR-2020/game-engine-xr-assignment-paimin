@@ -1,27 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScoreCounter : MonoBehaviour
 {
-    private int ScoreValue = 0;
+    private int ScoreValue;
+    [SerializeField] GameObject scoreText;
     // Start is called before the first frame update
     void Start()
     {
-        
+        ScoreValue = 0;
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        Debug.Log(this.GetScoreValue());
-    }
     public void AddScore(int point)
     {
-        this.ScoreValue += point;
+        ScoreValue += point;
+        Debug.Log(scoreText);
+        scoreText.GetComponent<Text>().text = ScoreValue.ToString();
     }
     public int GetScoreValue ()
     {
-        return this.ScoreValue;
+        return ScoreValue;
     }
 }

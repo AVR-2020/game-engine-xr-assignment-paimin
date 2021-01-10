@@ -11,7 +11,7 @@ public class EnemyAI : MonoBehaviour, ITakeDamage
     const string RUN_TRIGGER = "Run";
     const string CROUCH_TRIGGER = "Crouch";
     const string SHOOT_TRIGGER = "Shoot";
-
+    ScoreCounter scoreCounter;
     [SerializeField] private float startingHealth, minTimeUnderCover, maxTimeUnderCover, rotationSpeed, damage;
     [SerializeField] private int minShotsToTake, maxShotsToTake;
     [Range(0, 100)]
@@ -43,6 +43,7 @@ public class EnemyAI : MonoBehaviour, ITakeDamage
 
     private void Awake()
     {
+        scoreCounter = GameObject.Find("ScoreCounter").GetComponent<ScoreCounter>();
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         animator.SetTrigger(RUN_TRIGGER);
@@ -132,6 +133,9 @@ public class EnemyAI : MonoBehaviour, ITakeDamage
     {
         health -= weapon.GetDamage();
         if (health <= 0)
+        {
+            scoreCounter.AddScore(100);
             Destroy(gameObject);
+        }
     }
 }

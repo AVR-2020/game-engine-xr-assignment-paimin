@@ -33,7 +33,8 @@ public class KeyboardInput : MonoBehaviour
 
     public void Submit()
     {
-        Scores.Instance.PostScore(txt.GetComponent<TextMeshPro>().text, 123);
+        ScoreCounter scoreCounter = GameObject.Find("ScoreCounter").GetComponent<ScoreCounter>();
+        Scores.Instance.PostScore(txt.GetComponent<TextMeshPro>().text, scoreCounter.GetScoreValue());
         SceneManager.LoadScene("ScoreMenu");
     }
 }

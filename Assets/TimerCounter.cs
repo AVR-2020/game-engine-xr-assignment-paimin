@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class TimerCounter : MonoBehaviour
 {
     Text text;
-    private static float TimerValue = 0.0f;
+    [SerializeField] private static float TimerValue = 60.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +27,11 @@ public class TimerCounter : MonoBehaviour
     }
     public void AddTime()
     {
-        TimerValue += Time.deltaTime;
+        TimerValue -= Time.deltaTime;
+        if(TimerValue <= 0.0)
+        {
+            //stop game
+        }
     }
     public double GetTimerValue()
     {
