@@ -14,7 +14,6 @@ public class ScoreCounter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(this.GetScoreValue());
     }
     public void AddScore(int point)
     {

@@ -19,6 +19,9 @@ public class EnemyAI : MonoBehaviour, ITakeDamage
 
     [SerializeField] private Transform shootingPosition;
 
+    [SerializeField] private Projectile bulletPrefab;
+    [SerializeField] protected Transform bulletSpawn;
+
     private bool isShooting;
     private int currentShotsTaken;
     private int currentMaxShotsToTake;
@@ -102,19 +105,14 @@ public class EnemyAI : MonoBehaviour, ITakeDamage
     public void Shoot()
     {
         bool hitPlayer = UnityEngine.Random.Range(0, 100) < shootingAccuracy;
+        Debug.Log("Shoot");
         
         if (hitPlayer)
         {
             RaycastHit hit;
             Vector3 direction = player.GetHeadPosition() - shootingPosition.position;
-            if(Physics.Raycast(shootingPosition.position, direction, out hit))
-            {
-                Player player = hit.collider.GetComponentInParent<Player>();
-                if (player)
-                {
-                    player.TakeDamage(damage);
-                }
-            }
+            Projectile projectileInstance = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
+            projectileInstance.Launch();
         }
         currentShotsTaken++;
         if(currentShotsTaken >= currentMaxShotsToTake)
