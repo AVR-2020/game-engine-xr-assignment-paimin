@@ -44,6 +44,12 @@ public class EnemyAI : MonoBehaviour, ITakeDamage
         }
     }
 
+    public float damageBullet{
+        get{
+            return damage;
+        }
+    }
+
     private void Awake()
     {
         scoreCounter = GameObject.Find("ScoreCounter").GetComponent<ScoreCounter>();
