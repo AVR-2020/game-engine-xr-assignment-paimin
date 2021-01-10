@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class KeyboardInput : MonoBehaviour
 {
-    public GameObject txt;
+    private GameObject txt;
     // Start is called before the first frame update
     void Start()
     {

@@ -37,6 +37,4 @@ public class TimerCounter : MonoBehaviour
     {
         return System.Math.Round(TimerValue, 2);
     }
-
-
 }
