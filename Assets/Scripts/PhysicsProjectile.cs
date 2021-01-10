@@ -29,7 +29,7 @@ public class PhysicsProjectile : Projectile
     private void OnTriggerEnter(Collider other)
     {
         Destroy(gameObject);
-        ITakeDamage[] damageTakers = other.GetComponentsInChildren<ITakeDamage>();
+        ITakeDamage[] damageTakers = other.GetComponentsInParent<ITakeDamage>();
 
         foreach (var taker in damageTakers)
         {

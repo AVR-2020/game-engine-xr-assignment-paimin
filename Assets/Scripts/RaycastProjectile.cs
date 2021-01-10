@@ -10,7 +10,7 @@ public class RaycastProjectile : Projectile
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit))
         {
-            ITakeDamage[] damageTakers = hit.collider.GetComponentsInChildren<ITakeDamage>();
+            ITakeDamage[] damageTakers = hit.collider.GetComponentsInParent<ITakeDamage>();
             foreach (var taker in damageTakers)
             {
                 taker.TakeDamage(weapon, this, hit.point);
