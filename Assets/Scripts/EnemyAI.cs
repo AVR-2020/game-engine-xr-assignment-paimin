@@ -105,7 +105,6 @@ public class EnemyAI : MonoBehaviour, ITakeDamage
     public void Shoot()
     {
         bool hitPlayer = UnityEngine.Random.Range(0, 100) < shootingAccuracy;
-        Debug.Log("Shoot");
         
         if (hitPlayer)
         {
