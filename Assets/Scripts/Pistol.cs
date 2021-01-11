@@ -17,6 +17,7 @@ public class Pistol : Weapon
     {
         base.Shoot();
         Projectile projectileInstance = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
+        FindObjectOfType<AudioManager>().Play("pistolSound");
         projectileInstance.Init(this);
         projectileInstance.Launch();
     }

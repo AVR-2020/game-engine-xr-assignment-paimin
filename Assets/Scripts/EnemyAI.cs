@@ -117,6 +117,7 @@ public class EnemyAI : MonoBehaviour, ITakeDamage
         {
             Vector3 direction = player.GetHeadPosition() - shootingPosition.position;
             Projectile projectileInstance = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
+            FindObjectOfType<AudioManager>().Play("pistolSound");
             projectileInstance.Launch();
         }
         currentShotsTaken++;
