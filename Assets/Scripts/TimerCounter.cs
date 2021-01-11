@@ -42,4 +42,9 @@ public class TimerCounter : MonoBehaviour
     {
         return System.Math.Round(TimerValue, 2);
     }
+
+    public void bonusTime()
+    {
+        TimerValue += 1.0f;
+    }
 }
