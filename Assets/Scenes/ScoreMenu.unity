@@ -958,7 +958,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1983434919}
         m_TargetAssemblyTypeName: ScoreManager, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: RefreshScore
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
