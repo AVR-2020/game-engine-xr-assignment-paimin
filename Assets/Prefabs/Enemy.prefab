@@ -2125,7 +2125,7 @@ MonoBehaviour:
   damage: 20
   minShotsToTake: 4
   maxShotsToTake: 7
-  shootingAccuracy: 25
+  shootingAccuracy: 10
   shootingPosition: {fileID: 2986083287860540312}
   bulletPrefab: {fileID: -489022123371060917, guid: 98b0462f66bfeba4dac1502d27f62b03, type: 3}
   bulletSpawn: {fileID: 6370731154936447986}
